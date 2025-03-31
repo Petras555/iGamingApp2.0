@@ -1,0 +1,41 @@
+import requests
+
+url = "https://tech4s-staging.ft-crm.com/integration-api/api/v1/integration/custom"  # Replace with your actual URL
+
+payload = {
+
+    "notification_type": "registration.invitation",
+   
+   
+   
+          "ip_address": "",
+
+    "correlation_id": "86f89956-76ac-4480-8cd6-3235d95b492e",
+    "user_agent": "",
+    "data": {
+           "invitationToken": "7dcf2903-8256-47d6-b19a-631fa54c78f6",
+         "sourceBrand": "lucky8",
+              "destinationBrand": "prive"
+    },
+      "origin": "lucky8",
+
+    "user_id": "15752108",
+
+
+    "timestamp": "2025-01-15T16:48:26.815Z"
+
+      }
+
+# Optionally, set headers if needed:
+headers = {
+    "Content-Type": "application/json",
+
+    "x-api-key": "PyMDP4ZZh725GWY5h7E9I5GmdKQj7R4M",
+    "User-Agent": "python"
+    # Add other headers if required (e.g., Authorization)
+}
+
+response = requests.post(url, json=payload, headers=headers)
+
+print("Status code:", response.status_code)
+print("Response body:", response.text)

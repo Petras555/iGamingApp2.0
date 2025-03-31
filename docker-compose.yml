@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  igamingapp:
+    image: igamingapp
+    platform: linux/amd64
+    build: .
+    ports:
+      - "8005:8005"
+    depends_on:
+      - igamingapp-db
+    container_name: igamingapp
+    environment:
+      - DB_HOST=igamingapp-db      
+      - DB_NAME=igamingapp-db     
+      - DB_USER=root               
+      - DB_PASSWORD=root5         
+
+  igamingapp-db:
+    image: mysql:9
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root5
+      MYSQL_DATABASE: igamingapp-db
+    ports:
+      - "3306:3306"
+    container_name: igamingapp-db
